@@ -21,7 +21,9 @@
 			<h1>Reviews</h1>
 			<%= render @book.reviews %>
 			<div>
-				<%= link_to "Add Review", new_book_review_path(@book), class: "btn-custom" %>
+        <%- if @current_users_review.nil? %>
+				  <%= link_to "Add Review", new_book_review_path(@book), class: "btn-custom" %>
+        <% end %>
 			</div>
 		</div>
   </div>

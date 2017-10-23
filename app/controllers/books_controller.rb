@@ -11,6 +11,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    @current_users_review = @book.reviews.where(user: current_user).first if current_user
     if @book.reviews.blank?
       @average_review = 0
     else
